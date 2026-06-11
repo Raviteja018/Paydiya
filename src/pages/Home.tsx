@@ -104,7 +104,7 @@ export default function Home({ setActiveTab }: HomeProps) {
     <div className="w-full bg-transparent text-white relative overflow-hidden">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-36 pb-16 px-6 md:px-12 lg:px-24 overflow-hidden">
         {/* Moving Grid Background */}
         <div className="absolute inset-0 moving-grid opacity-30 z-0" />
         

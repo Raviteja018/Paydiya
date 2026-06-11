@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import logoImg from '../assets/paydiya_logo.png';
@@ -19,10 +19,29 @@ export const NAV_ITEMS = [
 
 export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="sticky top-4 z-50 w-full px-4 md:px-12 lg:px-24 pointer-events-none">
-      <nav className="mx-auto max-w-6xl glass-panel border border-slate-200/80 rounded-full py-3 px-6 md:px-8 flex items-center justify-between shadow-xl backdrop-blur-lg pointer-events-auto transition-all duration-300">
+    <div className={`fixed top-0 left-0 right-0 z-50 w-full px-4 md:px-12 lg:px-24 pointer-events-none transition-all duration-300 ${
+      scrolled 
+        ? 'py-3 bg-white/70 backdrop-blur-md shadow-sm border-b border-slate-200/30' 
+        : 'py-5 bg-transparent'
+    }`}>
+      <nav className={`mx-auto max-w-6xl glass-panel border border-slate-200/80 rounded-full py-3 px-6 md:px-8 flex items-center justify-between shadow-xl backdrop-blur-lg pointer-events-auto transition-all duration-300 ${
+        scrolled ? 'scale-[0.98] shadow-lg' : 'scale-100'
+      }`}>
 
         {/* Logo */}
         <div

@@ -52,7 +52,7 @@ export default function Partners() {
   };
 
   return (
-    <div className="w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent text-white relative overflow-hidden">
+    <div className="w-full pt-32 pb-20 px-6 md:px-12 lg:px-24 bg-transparent text-white relative overflow-hidden">
 
       {/* Background glow overlay */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-electric-violet/5 rounded-full filter blur-[100px] pointer-events-none" />
